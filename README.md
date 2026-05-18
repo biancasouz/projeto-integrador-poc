@@ -23,3 +23,7 @@ Demonstrar a viabilidade de uma solução tecnológica para clínicas de saúde 
 - Bianca de Souza Barbosa
 - Alexandre Braz Bessa
 - Luiz Carlos Pugeti Junior
+
+## Vídeo de demonstração
+
+https://youtu.be/-CDwHEtrzdw 
