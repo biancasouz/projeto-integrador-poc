@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vital Saúde - Cadastro de Pacientes</h1>
+
+        <form method="POST">
+            <input type="text" name="nome" placeholder="Nome do paciente" required>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <h2>Pacientes cadastrados</h2>
+
+        <ul>
+            {% for paciente in pacientes %}
+                <li>{{ paciente.nome }} - CPF: {{ paciente.cpf }} - Telefone: {{ paciente.telefone }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>

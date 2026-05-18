@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vital Saúde - Agendamento de Exames</h1>
+
+        <form method="POST">
+            <input type="text" name="paciente" placeholder="Nome do paciente" required>
+
+            <input type="text" name="empresa" placeholder="Nome da empresa" required>
+
+            <input type="date" name="data" required>
+
+            <input type="time" name="horario" required>
+
+            <select name="exame" required>
+                <option value="">Selecione o exame</option>
+                <option value="Admissional">Admissional</option>
+                <option value="Demissional">Demissional</option>
+                <option value="Periódico">Periódico</option>
+                <option value="Retorno ao trabalho">Retorno ao trabalho</option>
+            </select>
+
+            <button type="submit">Agendar</button>
+        </form>
+
+        <h2>Agendamentos realizados</h2>
+
+        <ul>
+            {% for agendamento in agendamentos %}
+                <li>
+                    {{ agendamento.paciente }} -
+                    {{ agendamento.empresa }} -
+                    {{ agendamento.exame }} -
+                    {{ agendamento.data }} às {{ agendamento.horario }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ASO</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vital Saúde - Emissão de ASO</h1>
+
+        {% for agendamento in agendamentos %}
+            <div class="card">
+                <h2>Atestado de Saúde Ocupacional</h2>
+
+                <p><strong>Paciente:</strong> {{ agendamento.paciente }}</p>
+
+                <p><strong>Empresa:</strong> {{ agendamento.empresa }}</p>
+
+                <p><strong>Tipo de exame:</strong> {{ agendamento.exame }}</p>
+
+                <p><strong>Data:</strong> {{ agendamento.data }}</p>
+
+                <p><strong>Horário:</strong> {{ agendamento.horario }}</p>
+
+                <p><strong>Resultado:</strong> Apto</p>
+            </div>
+        {% endfor %}
+
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Empresas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vital Saúde - Cadastro de Empresas</h1>
+
+        <form method="POST">
+            <input type="text" name="nome" placeholder="Nome da empresa" required>
+            <input type="text" name="cnpj" placeholder="CNPJ" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <h2>Empresas cadastradas</h2>
+
+        <ul>
+            {% for empresa in empresas %}
+                <li>{{ empresa.nome }} - CNPJ: {{ empresa.cnpj }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>
