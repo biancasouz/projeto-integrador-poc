@@ -15,6 +15,7 @@ Sistema web desenvolvido como Prova de Conceito (PoC) para gerenciamento de exam
 - HTML
 - CSS
 - GitHub
+- SQLite
 
 ## Objetivo
 Demonstrar a viabilidade de uma solução tecnológica para clínicas de saúde ocupacional.
