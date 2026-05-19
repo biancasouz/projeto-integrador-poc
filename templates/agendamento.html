@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -10,14 +11,10 @@
         <h1>Vital Saúde - Agendamento de Exames</h1>
 
         <form method="POST">
-            <input type="text" name="paciente" placeholder="Nome do paciente" required>
-
-            <input type="text" name="empresa" placeholder="Nome da empresa" required>
-
-            <input type="date" name="data" required>
-
+            <input type="text" name="paciente" id="paciente" placeholder="Nome do paciente" required>
+            <input type="text" name="empresa" id="empresa" placeholder="Nome da empresa" required>
+            <input type="date" name="data" min="1940-01-01" max="2026-12-31" required>
             <input type="time" name="horario" required>
-
             <select name="exame" required>
                 <option value="">Selecione o exame</option>
                 <option value="Admissional">Admissional</option>
@@ -25,22 +22,42 @@
                 <option value="Periódico">Periódico</option>
                 <option value="Retorno ao trabalho">Retorno ao trabalho</option>
             </select>
-
             <button type="submit">Agendar</button>
         </form>
 
         <h2>Agendamentos realizados</h2>
 
         <ul>
-            {% for agendamento in agendamentos %}
+            {% for ag in agendamentos %}
                 <li>
-                    {{ agendamento.paciente }} -
-                    {{ agendamento.empresa }} -
-                    {{ agendamento.exame }} -
-                    {{ agendamento.data }} às {{ agendamento.horario }}
+                    {{ ag.paciente }} -
+                    {{ ag.empresa }} -
+                    {{ ag.exame }} -
+                    {{ ag.data }} às {{ ag.horario }}
+                    <form method="POST" action="/agendamento/deletar/{{ ag.id }}" style="display:inline;">
+                        <button type="submit" class="btn-deletar">Deletar</button>
+                    </form>
                 </li>
             {% endfor %}
         </ul>
+
+        <a href="/">Voltar</a>
+    </div>
+
+    <script>
+        const fields = ["paciente", "empresa"];
+        fields.forEach(function (id) {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener("input", function () {
+                    this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
 
         <a href="/">Voltar</a>
     </div>
